@@ -32,10 +32,12 @@ class _HomePageState extends State<HomePage> {
               listMovieStore.getMovieFiltered(selectGenre.id);
             },
           ),
-          ListMoviesWidget(
-            onTap: (movie) {
-              Modular.to.pushNamed('/movieDetailPage', arguments: movie);
-            },
+          Expanded(
+            child: ListMoviesWidget(
+              onTap: (movie) {
+                Modular.to.pushNamed('/movieDetailPage', arguments: movie);
+              },
+            ),
           ),
         ],
       ),

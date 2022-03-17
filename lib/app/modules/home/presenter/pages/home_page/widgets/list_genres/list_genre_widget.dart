@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx_movie_app/app/modules/home/domain/entities/genre_entity.dart';
 import 'package:mobx_movie_app/app/modules/home/presenter/pages/home_page/widgets/custom_genre_widget.dart';
+import 'package:mobx_movie_app/app/modules/home/presenter/pages/home_page/widgets/list_genres/custom_genre_shimmer_widget.dart';
 import 'package:mobx_movie_app/app/modules/home/presenter/pages/home_page/widgets/list_genres/list_genre_store.dart';
 
 class ListGenreWidget extends StatefulWidget {
@@ -46,9 +47,7 @@ class _ListGenreWidgetState extends State<ListGenreWidget> {
             child: Observer(
               builder: (context) {
                 if (listGenreStore.loading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
+                  return const CustomGenreShimmerWidget();
                 }
                 if (listGenreStore.error.isNotEmpty) {
                   return Center(
